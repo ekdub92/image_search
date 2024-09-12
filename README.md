@@ -63,27 +63,45 @@ python scripts/ingest_data.py
 
 The script will download the pretrained CLIP model and process the images by batch. It will use GPU if there is one.
 
+### RUN docker-compose
+
+```bash
+docker-compose up -d
+```
+
+check username, password of elastic search
+
+docker logs elasticsearch
+
+you can check username and password of elasticsearch just once.
+
+### RUN server
+
+set environment values
+
+- for example
+```
+# .env
+
+ES_ENDPOINT = "http://localhost:9200"
+ES_USERNAME = "elastic"
+ES_PASSWORD = "xD==TAS=NP**3Ma_2dEM"
+
+```
+
+run server
+```
+poetry install
+poetry run fastapi run clip_image_search\server\app.py
+```
+
 ### Build Docker image
+TO-DO
 
-Build Docker image for AWS Lambda.
-
-```
-docker build --build-arg AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY_ID \
-             --build-arg AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY \
-             --tag clip-image-search \
-             --file server/Dockerfile .
-```
-
-Run the Docker image as a container.
+### Test the container with a GET request.
 
 ```
-docker run -p 9000:8080 -it --rm clip-image-search
-```
-
-Test the container with a POST request.
-
-```
-curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"query": "two dogs", "input_type": "text"}'
+curl "http://localhost:8000/input_type=text&query=cat"
 ```
 
 ### Run Streamlit app
@@ -92,7 +110,11 @@ curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d
 streamlit run streamlit_app.py
 ```
 
+![cat_by_text](images/cat_by_text.png)
+![cat_by_image](images/cat_by_image.png)
+
 ## Acknowledgement
 
 - [open-ai/CLIP](https://github.com/openai/CLIP)
 - [haltakov/natural-language-image-search](https://github.com/haltakov/natural-language-image-search)
+- [clip-image-search](https://github.com/kingyiusuen/clip-image-search)

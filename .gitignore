@@ -1,11 +1,10 @@
 # Data
 /unsplash-dataset
+unsplash-dataset.zip
 
-# Weights & Biases
-wandb
-
-# Editors
+# IDE
 .vscode
+.idea
 
 # Python
 __pycache__
@@ -18,8 +17,8 @@ __pycache__
 .pytest_cache
 htmlcov
 
-# Virtual environment
-venv
+# env
+.env
 
 # Streamlit
 .streamlit

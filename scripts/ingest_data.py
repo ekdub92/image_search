@@ -4,7 +4,8 @@ from torch.utils.data import DataLoader, Dataset
 from tqdm import tqdm
 
 import clip_image_search.utils as utils
-from clip_image_search import CLIPFeatureExtractor, Searcher
+from clip_image_search import CLIPFeatureExtractor
+from clip_image_search.server.feature_processing.searcher import Searcher
 
 
 class UnsplashDataset(Dataset):

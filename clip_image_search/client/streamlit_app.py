@@ -1,7 +1,9 @@
 import json
+from http import HTTPStatus
 
 import requests
 import streamlit as st
+from starlette import status
 
 import clip_image_search.utils as utils
 
@@ -14,6 +16,8 @@ The database contains 25,000 images from the Unsplash Dataset. You can either
 
 The algorithm will return the ten most relevant images.
 """
+
+API_ENDPOINT = "http://localhost:8000"
 
 
 def handle_query(query, input_type, max_attempts=3):
@@ -30,29 +34,28 @@ def handle_query(query, input_type, max_attempts=3):
         else:
             message = "The server needs some time to warm up..."
         with st.spinner(message):
-            response = make_post_request(query, input_type)
+            response = make_get_request(query, input_type)
             if response.status_code != 503:
                 break
 
     display_results(response)
 
 
-def make_post_request(query, input_type):
+def make_get_request(query, input_type):
     headers = {
         "Content-type": "application/json",
-        "x-api-key": st.secrets["api_key"],
+        # "x-api-key": st.secrets["api_key"],
     }
-    data = json.dumps({"query": query, "input_type": input_type})
-    response = requests.post(st.secrets["api_endpoint"], data=data, headers=headers)
+    params = {"query": query, "input_type": input_type}
+    response = requests.get(API_ENDPOINT, params=params, headers=headers)
     return response
 
 
 def display_results(response):
-    response = response.json()
-    if response.get("status_code") != 200:
+    if response.status_code != status.HTTP_200_OK:
         st.error(response["message"])
         return
-
+    response = response.json()
     cols = st.columns(2)
     col_heights = [0, 0]
     for hit in response["body"]:

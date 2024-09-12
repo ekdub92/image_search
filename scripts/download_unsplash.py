@@ -1,11 +1,11 @@
 import os
+import pandas as pd
+
 from argparse import ArgumentParser
 from functools import partial
 from multiprocessing.pool import ThreadPool
 from pathlib import Path
 from urllib.request import urlretrieve
-
-import pandas as pd
 
 
 DOWNLOAD_URL = "https://unsplash-datasets.s3.amazonaws.com/lite/latest/unsplash-research-dataset-lite-latest.zip"

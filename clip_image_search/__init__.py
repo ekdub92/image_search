@@ -1,2 +1,1 @@
-from .clip_feature_extractor import CLIPFeatureExtractor
-from .searcher import Searcher
+from clip_image_search.server.feature_processing.feature_extractor import CLIPFeatureExtractor
