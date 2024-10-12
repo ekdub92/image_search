@@ -118,3 +118,11 @@ streamlit run streamlit_app.py
 - [open-ai/CLIP](https://github.com/openai/CLIP)
 - [haltakov/natural-language-image-search](https://github.com/haltakov/natural-language-image-search)
 - [clip-image-search](https://github.com/kingyiusuen/clip-image-search)
+
+## 수정한 부분
+- 원래의 clip_image_search 폴더 이름을 레포지토리 이름과 동일한 image_search로 바꿈 
+- clip_image_search 폴더 내부 코드 중에서 clip_image_search라고 적힌 부분을 모두 image_search로 바꿈
+- pyproject.toml
+  - line 25 : [tool.poetry]의 name = "image_search"로 레포지토리 이름과 동일하게 수정함
+  - line 28 : [tool.poetry]의 authors 변수 <> 안에 깃험 계정 이메일 주소를 채워넣음
+  - 기타 수정 사항은 없었던 것 같음 (기억나지 않음) 
