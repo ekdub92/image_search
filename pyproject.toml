@@ -22,10 +22,10 @@ python_files = "test_*.py"
 addopts = "--strict-markers --disable-pytest-warnings"
 
 [tool.poetry]
-name = "image-searcher"
+name = "image_search"
 version = "0.1.0"
 description = ""
-authors = ["modulabs nlp-forge-lab <>"]
+authors = ["modulabs nlp-forge-lab <ekdub92@naver.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
