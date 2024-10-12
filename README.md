@@ -127,5 +127,5 @@ streamlit run streamlit_app.py
 - pyproject.toml
   - line 25 : [tool.poetry]의 name = "image_search"로 레포지토리 이름과 동일하게 수정함
   - line 28 : [tool.poetry]의 authors 변수 <> 안에 깃험 계정 이메일 주소를 채워넣음
-  - 기타 수정 사항은 없었던 것 같음 (기억나지 않음) 
-  - .env 파일 생성 시 ES_ENDPOINT = "http://localhost:9200"만 적고, ES_USERNAME과 ES_PASSWORD는 쓰지 않아도 됨 
+- .env 파일 생성 시 ES_ENDPOINT = "http://localhost:9200"만 적고, ES_USERNAME과 ES_PASSWORD는 쓰지 않아도 됨 
+- 기타 수정 사항은 없었던 것 같음 (기억나지 않음) 
