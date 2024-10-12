@@ -1,1 +1,0 @@
-from clip_image_search.server.feature_processing.feature_extractor import CLIPFeatureExtractor
