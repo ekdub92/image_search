@@ -120,9 +120,12 @@ streamlit run streamlit_app.py
 - [clip-image-search](https://github.com/kingyiusuen/clip-image-search)
 
 ## 수정한 부분
+- pip install -e . --no-cache-dir 명령어 실행 전에 가상환경을 만들고 python 버전은 3.12로 맞춰야 나중에 에러가 나지 않음
+- docker-compose up -d 명령어 실행 전에 docker 어플리케이션을 실행했는지 확인할 것
 - 원래의 clip_image_search 폴더 이름을 레포지토리 이름과 동일한 image_search로 바꿈 
 - clip_image_search 폴더 내부 코드 중에서 clip_image_search라고 적힌 부분을 모두 image_search로 바꿈
 - pyproject.toml
   - line 25 : [tool.poetry]의 name = "image_search"로 레포지토리 이름과 동일하게 수정함
   - line 28 : [tool.poetry]의 authors 변수 <> 안에 깃험 계정 이메일 주소를 채워넣음
   - 기타 수정 사항은 없었던 것 같음 (기억나지 않음) 
+  - .env 파일 생성 시 ES_ENDPOINT = "http://localhost:9200"만 적고, ES_USERNAME과 ES_PASSWORD는 쓰지 않아도 됨 
