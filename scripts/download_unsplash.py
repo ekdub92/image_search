@@ -40,7 +40,7 @@ def main():
     print(f"Downloading metadata file {zip_filename}...")
     os.system(f"curl -o {zip_filename} {DOWNLOAD_URL}")
     print(f"Extracting {zip_filename}...")
-    os.system(f"unzip {zip_filename} -d {str(DATASET_PATH)}")
+    os.system(f"tar -zxvf {zip_filename} -C {str(DATASET_PATH)}")
 
     df = pd.read_csv(DATASET_PATH / "photos.tsv000", sep="\t", usecols=["photo_id", "photo_image_url"])
     photos = df.values.tolist()
